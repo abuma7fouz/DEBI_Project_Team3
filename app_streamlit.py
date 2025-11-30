@@ -267,6 +267,8 @@ def load_model(ckpt_path, num_classes):
 
 
 def preprocess_image_pil(pil_image):
+    if not isinstance(pil_image, Image.Image):
+        pil_image = Image.open(io.BytesIO(pil_image)).convert("RGB")
     tf = get_transform()
     if pil_image.mode != "RGB":
         pil_image = pil_image.convert("RGB")
@@ -373,3 +375,4 @@ if img_to_predict is not None:
 # -------- FOOTER --------
 st.markdown("---")
 st.caption(f"Running on: **{DEVICE}** — Model Loaded: **{'Yes' if model else 'No'}**")
+
