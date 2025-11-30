@@ -1,6 +1,6 @@
 streamlit
+numpy==1.26.4
 pillow
-numpy
 pandas
 torch==1.13.1+cpu
 torchvision==0.14.1+cpu
